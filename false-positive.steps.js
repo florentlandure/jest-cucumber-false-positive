@@ -1,12 +1,6 @@
-const FalsePositiveSteps = ({ given, then }) => {
-    let storedValue;
-
-    given(/^A value (.*)$/, (value) => {
-        storedValue = value;
-    });
-
-    then(/^The value is equal to (.*)$/, (expectedValue) => {
-       expect(storedValue).toEqual(expectedValue);
+const FalsePositiveSteps = ({ then }) => {
+    then(/^The value (.*) is equal to (.*)$/, (value, expectedValue) => {
+       expect(value).toBe(expectedValue);
     });
 }
 
